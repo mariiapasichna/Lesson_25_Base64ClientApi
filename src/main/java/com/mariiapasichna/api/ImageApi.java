@@ -13,7 +13,7 @@ import java.io.IOException;
 
 public class ImageApi {
     private static ImageApi instance;
-    private MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
+    private MediaType mediaType = MediaType.parse("application/json");
     private Gson gson = new Gson();
     private String url = Main.URL;
 
@@ -33,7 +33,6 @@ public class ImageApi {
             Request request = new Request.Builder()
                     .url(url)
                     .method(method, body)
-                    .addHeader("Content-Type", "application/x-www-form-urlencoded")
                     .build();
             return client.newCall(request).execute();
         } catch (IOException e) {
@@ -43,7 +42,7 @@ public class ImageApi {
     }
 
     public Response createImage(Image image) {
-        RequestBody body = RequestBody.create("name="+image.getName()+"&image="+image.getImage(), mediaType);
+        RequestBody body = RequestBody.create(gson.toJson(image), mediaType);
         return getResponse("POST", body, url);
     }
 

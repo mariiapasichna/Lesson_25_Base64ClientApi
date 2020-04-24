@@ -11,13 +11,16 @@ import java.util.Base64;
 
 public class Main {
 
-    public static final String URL = "http://localhost:" + System.getProperty("config") + "/Lesson_25_mariiapasichna/database/";
+    //public static final String URL = "http://localhost:" + System.getProperty("config") + "/Lesson_25_mariiapasichna/database/";
+    public static final String URL = "http://164.68.101.149:12345/Lesson_25_mariiapasichna/database/";
+
     public static final String PATH_INPUT = "/Users/user/IdeaProjects/Lesson_25_Base64ClientApi/Image.jpg";
+
     public static void main(String[] args) {
         ImageApi imageApi = ImageApi.getInstance();
-        printResponse(imageApi.createImage(new Image("Post",encodeFileToString())));
+        printResponse(imageApi.createImage(new Image("Post", encodeFileToString())));
         printResponse(imageApi.getListImages());
-        printResponse(imageApi.getImage("24"));
+        printResponse(imageApi.getImage("4"));
     }
 
     private static String encodeFileToString() {
