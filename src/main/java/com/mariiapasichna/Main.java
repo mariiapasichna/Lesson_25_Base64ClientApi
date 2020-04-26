@@ -20,7 +20,6 @@ public class Main {
         ImageApi imageApi = ImageApi.getInstance();
         printResponse(imageApi.createImage(new Image("Post", encodeFileToString())));
         printResponse(imageApi.getListImages());
-        printResponse(imageApi.getImage("4"));
     }
 
     private static String encodeFileToString() {

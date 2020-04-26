@@ -46,10 +46,6 @@ public class ImageApi {
         return getResponse("POST", body, url);
     }
 
-    public Response getImage(String path) {
-        return getResponse("GET", null, url + path);
-    }
-
     public Response getListImages() {
         return getResponse("GET", null, url);
     }
